@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS smartpak_db;
-USE smartpak_db;
+CREATE DATABASE IF NOT EXISTS smartpark_db;
+USE smartpark_db;
 
 --1. Teves, Dave Bryan
 CREATE TABLE Users (
