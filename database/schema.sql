@@ -20,7 +20,7 @@ CREATE TABLE Parking_Zones (
     zone_type ENUM('Standard', 'VIP', 'EV', 'Disabled') NOT NULL
 );
 
---2. Bermudo Micha G.
+--6. Bermudo Micha G.
 CREATE TABLE Payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     session_id INT NOT NULL,
