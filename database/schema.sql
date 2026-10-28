@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS smartpark_db;
 USE smartpark_db;
 
---1. Teves, Dave Bryan
+--1. Teves, Dave Bryan A
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
