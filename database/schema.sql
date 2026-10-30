@@ -80,6 +80,37 @@ CREATE TABLE Parking_Spots (
     UNIQUE(zone_id, spot_number)
 );
 
+-- 4. Vargas, Anton Johnrhoan
+CREATE TABLE IoT_Devices (
+    device_id INT AUTO_INCREMENT PRIMARY KEY,
+    zone_id INT NOT NULL,
+    device_type ENUM('Camera', 'Boom Barrier', 'Spot Sensor', 'Kiosk') NOT NULL,
+    ip_address VARCHAR(45) UNIQUE,
+    status ENUM('Online', 'Offline', 'Maintenance') DEFAULT 'Online',
+    last_ping TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (zone_id) REFERENCES Parking_Zones(zone_id) ON DELETE CASCADE
+);
+
+CREATE TABLE RFID_Tags (
+    tag_id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_id INT NOT NULL,
+    rfid_code VARCHAR(100) UNIQUE NOT NULL,
+    issue_date DATE NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (vehicle_id) REFERENCES Vehicles(vehicle_id) ON DELETE CASCADE
+);
+
+CREATE TABLE EV_Chargers (
+    charger_id INT AUTO_INCREMENT PRIMARY KEY,
+    spot_id INT UNIQUE NOT NULL,
+    charger_type ENUM('Level 1', 'Level 2', 'DC Fast') NOT NULL,
+    power_output_kw DECIMAL(5, 2) NOT NULL,
+    status ENUM('Available', 'In Use', 'Out of Order') DEFAULT 'Available',
+    FOREIGN KEY (spot_id) REFERENCES Parking_Spots(spot_id) ON DELETE CASCADE
+);
+
+
+
 --5. Tero, Ma. Rudylin
 CREATE TABLE Reservations (
     reservation_id INT AUTO_INCREMENT PRIMARY KEY,
