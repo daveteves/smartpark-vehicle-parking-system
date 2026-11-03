@@ -40,6 +40,15 @@ INSERT INTO EV_Chargers (spot_id, charger_type, power_output_kw, status) VALUES
 (3, 'Level 2', 7.20, 'In Use'),
 (4, 'DC Fast', 50.00, 'Available');
 
+-- 4. Third-Level Dependencies
+INSERT INTO Reservations (user_id, spot_id, start_time, end_time, status) VALUES
+(2, 1, '2026-11-02 08:00:00', '2026-11-02 12:00:00', 'Pending');
+
+INSERT INTO Parking_Sessions (vehicle_id, spot_id, entry_timestamp, exit_timestamp, status) VALUES
+(1, 2, '2026-11-01 07:30:00', NULL, 'Active'),
+(2, 3, '2026-11-01 08:15:00', NULL, 'Active');
+
+
 -- 5. Fourth-Level Dependencies
 INSERT INTO Payments (session_id, amount_due, amount_paid, method, status) VALUES
 (1, 70.00, 0.00, 'Card', 'Pending');
