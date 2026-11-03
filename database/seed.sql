@@ -27,6 +27,19 @@ INSERT INTO Vehicles (user_id, license_plate, vehicle_type, color) VALUES
 (2, 'XYZ-5678', 'Motorcycle', 'Black'),
 (3, 'EV-9999', 'EV', 'White');
 
+INSERT INTO IoT_Devices (zone_id, device_type, ip_address, status) VALUES
+(1, 'Boom Barrier', '192.168.1.10', 'Online'),
+(2, 'Camera', '192.168.1.11', 'Online');
+
+-- 3. Second-Level Dependencies
+INSERT INTO RFID_Tags (vehicle_id, rfid_code, issue_date) VALUES
+(1, 'RFID-CAR-001', '2026-11-01'),
+(2, 'RFID-EV-002', '2026-11-01');
+
+INSERT INTO EV_Chargers (spot_id, charger_type, power_output_kw, status) VALUES
+(3, 'Level 2', 7.20, 'In Use'),
+(4, 'DC Fast', 50.00, 'Available');
+
 -- 5. Fourth-Level Dependencies
 INSERT INTO Payments (session_id, amount_due, amount_paid, method, status) VALUES
 (1, 70.00, 0.00, 'Card', 'Pending');
