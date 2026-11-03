@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS smartpark_db;
 USE smartpark_db;
 
---1. Teves, Dave Bryan A
+--1. Teves, Dave Bryan A - Core
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -12,7 +12,15 @@ CREATE TABLE Users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
---2. Teves, Richie 
+CREATE TABLE Parking_Zones (
+    zone_id INT AUTO_INCREMENT PRIMARY KEY,
+    zone_name VARCHAR(50) NOT NULL,
+    floor_level INT NOT NULL,
+    capacity INT NOT NULL,
+    zone_type ENUM('Standard', 'VIP', 'EV', 'Disabled') NOT NULL
+);
+
+--2. Teves, Richie
 CREATE TABLE Tariff_Rules (
     tariff_id INT AUTO_INCREMENT PRIMARY KEY,
     vehicle_type ENUM('Car', 'Motorcycle', 'EV') NOT NULL,
@@ -42,15 +50,7 @@ CREATE TABLE Vehicles (
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE Parking_Zones (
-    zone_id INT AUTO_INCREMENT PRIMARY KEY,
-    zone_name VARCHAR(50) NOT NULL,
-    floor_level INT NOT NULL,
-    capacity INT NOT NULL,
-    zone_type ENUM('Standard', 'VIP', 'EV', 'Disabled') NOT NULL
-);
-
---6. Bermudo Micha G.
+--6. Bermudo Micha G. - Finance
 CREATE TABLE Payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     session_id INT NOT NULL,
