@@ -27,6 +27,19 @@ INSERT INTO Vehicles (user_id, license_plate, vehicle_type, color) VALUES
 (2, 'XYZ-5678', 'Motorcycle', 'Black'),
 (3, 'EV-9999', 'EV', 'White');
 
+INSERT INTO Memberships (user_id, plan_type, start_date, end_date, status) VALUES
+(2, 'Monthly', '2026-11-01', '2026-12-01', 'Active');
+
+INSERT INTO Audit_Logs (user_id, action_type, description, ip_address) VALUES
+(1, 'SYSTEM_START', 'System initialized by admin', '192.168.1.100'),
+(2, 'USER_LOGIN', 'Customer logged in', '10.0.0.50');
+
+INSERT INTO Parking_Spots (zone_id, spot_number, status) VALUES
+(1, 'A1', 'Available'),
+(1, 'A2', 'Occupied'),
+(2, 'EV1', 'Occupied'),
+(2, 'EV2', 'Available');
+
 INSERT INTO IoT_Devices (zone_id, device_type, ip_address, status) VALUES
 (1, 'Boom Barrier', '192.168.1.10', 'Online'),
 (2, 'Camera', '192.168.1.11', 'Online');
