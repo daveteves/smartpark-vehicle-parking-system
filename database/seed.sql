@@ -11,21 +11,20 @@ INSERT INTO Parking_Zones (zone_name, floor_level, capacity, zone_type) VALUES
 ('Level 1 South', 1, 20, 'EV'),
 ('Level 2 VIP', 2, 30, 'VIP');
 
--- 2. MasterData Seeds
+-- 2. First Level Dependencies
 INSERT INTO Tariff_Rules (vehicle_type, base_rate, hourly_rate, daily_max, grace_period) VALUES
-('Car', 30.00, 20.00, 300.00, 15),
-('Motorcycle', 20.00, 10.00, 150.00, 10),
-('EV', 40.00, 25.00, 350.00, 20);
+('Car', 50.00, 20.00, 300.00, 15),
+('Motorcycle', 30.00, 10.00, 150.00, 15),
+('EV', 40.00, 15.00, 250.00, 20);
 
-INSERT INTO Promo_Codes (code, discount_percentage, discount_amount, valid_from, valid_until, usage_limit, times_used) VALUES
-('WELCOME10', 10.00, NULL, '2026-01-01', '2026-12-31', 100, 0),
-('FLAT50', NULL, 50.00, '2026-06-01', '2026-06-30', 50, 0),
-('STUDENT20', 20.00, NULL, '2026-01-01', '2026-12-31', 200, 0);
+INSERT INTO Promo_Codes (code, discount_percentage, discount_amount, valid_from, valid_until, usage_limit) VALUES
+('WELCOME20', 20.00, NULL, '2026-11-01', '2026-12-31', 100),
+('MINUS50', NULL, 50.00, '2026-11-01', '2026-11-30', 50);
 
 INSERT INTO Vehicles (user_id, license_plate, vehicle_type, color) VALUES
-(2, 'ABC-1234', 'Car', 'Red'),
-(2, 'XYZ-5678', 'Motorcycle', 'Black'),
-(3, 'EV-9999', 'EV', 'White');
+(2, 'ABC-1234', 'Car', 'Black'),
+(3, 'XYZ-9876', 'EV', 'White'),
+(2, 'MOT-555', 'Motorcycle', 'Red');
 
 INSERT INTO Memberships (user_id, plan_type, start_date, end_date, status) VALUES
 (2, 'Monthly', '2026-11-01', '2026-12-01', 'Active');
