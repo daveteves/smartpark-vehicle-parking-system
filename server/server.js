@@ -11,6 +11,7 @@ const coreRoutes = require('./routes/coreRoutes');
 
 app.use('/api/core', require('./routes/coreRoutes'));
 app.use('/api/masterdata', require('./routes/masterDataRoutes'));
+app.use('/api/audit-and-spots', require('./routes/auditAndSpotsRoutes'));
 
 app.get('/', (req, res) => {
   res.status(200).json({ success: true, message: 'Welcome to the SmartPark API' });
