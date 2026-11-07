@@ -1,4 +1,4 @@
-const Finance = require("../models/financeModel");
+const Finance = require("../models/Finance");
 
 const response = (res, status, success, message, data = null) => {
     return res.status(status).json({
