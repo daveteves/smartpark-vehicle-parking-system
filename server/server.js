@@ -10,12 +10,14 @@ app.use(express.json());
 const coreRoutes = require('./routes/coreRoutes');
 const masterDataRoutes = require('./routes/masterDataRoutes');
 const auditAndSpotsRoutes = require('./routes/auditAndSpotsRoutes');
+const hardwareRoutes = require('./routes/hardwareRoutes');
 const transactionsRoutes = require('./routes/transactionsRoutes');
 const financeRoutes = require('./routes/financeRoutes');
 
 app.use('/api/core', require('./routes/coreRoutes'));
 app.use('/api/masterdata', require('./routes/masterDataRoutes'));
 app.use('/api/audit-and-spots', require('./routes/auditAndSpotsRoutes'));
+app.use('/api/hardware', require('./routes/hardwareRoutes'));
 app.use('/api/transactions', require('./routes/transactionsRoutes'));
 app.use('/api/finance', require('./routes/financeRoutes'));
 
