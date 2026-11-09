@@ -122,13 +122,13 @@ class Transactions {
     }
 
     static async getSessionsWithSpots() {
-        const [rows] = await db.execute(
-            `SELECT ps.session_id, ps.vehicle_id, ps.spot_id, ps.entry_timestamp, ps.exit_timestamp, ps.status, sp.
-            *FROM Parking_Sessions ps
-            INNER JOIN Parking_Spots sp
-            ON ps.spot_id = sp.spot_id`);
-
-        return rows;
+        const [rows] = await db.execute(`
+            SELECT ps.session_id, ps.vehicle_id, ps.spot_id, ps.entry_timestamp, ps.exit_timestamp, ps.status AS session_status,
+                 sp.spot_number, sp.status AS spot_status, sp.zone_id
+         FROM Parking_Sessions ps
+            INNER JOIN Parking_Spots sp ON ps.spot_id = sp.spot_id
+        `);
+     return rows;
     }
 }
 

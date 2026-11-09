@@ -23,5 +23,6 @@ router.get('/parking-spots/:id', AuditAndSpotsController.getParkingSpotById);
 router.post('/parking-spots', AuditAndSpotsController.createParkingSpot);
 router.put('/parking-spots/:id', AuditAndSpotsController.updateParkingSpot);
 router.delete('/parking-spots/:id', AuditAndSpotsController.deleteParkingSpot);
+router.get('/spots-with-zones', AuditAndSpotsController.getSpotsWithZones);
 
 module.exports = router;

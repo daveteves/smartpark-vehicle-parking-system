@@ -121,13 +121,12 @@ class MasterData {
   static async getVehiclesWithRFID() {
     const [rows] = await db.execute(`
       SELECT v.vehicle_id, v.license_plate, v.vehicle_type, v.color, v.user_id,
-             r.tag_id, r.tag_code, r.status AS rfid_status
-      FROM Vehicles v
+            r.tag_id, r.rfid_code, r.is_active AS rfid_status
+     FROM Vehicles v
       LEFT JOIN RFID_Tags r ON v.vehicle_id = r.vehicle_id
     `);
     return rows;
   }
-
 }
 
 module.exports = MasterData;

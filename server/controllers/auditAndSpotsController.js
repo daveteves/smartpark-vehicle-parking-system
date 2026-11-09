@@ -207,3 +207,12 @@ exports.deleteParkingSpot = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
+exports.getSpotsWithZones = async (req, res) => {
+    try {
+        const spots = await AuditAndSpots.getSpotsWithZones();
+        res.json({ success: true, data: spots });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
