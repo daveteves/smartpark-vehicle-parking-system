@@ -115,47 +115,23 @@ exports.getChargingSessions = async () => {
 // FULL OUTER JOIN REPORT
 exports.getFinanceReport = async () => {
     const [rows] = await db.query(`
-        SELECT
-            p.payment_id,
-            p.charging_session_id,
-            p.violation_id,
-            p.amount AS payment_amount,
-            p.payment_method,
-            p.payment_status,
-            p.payment_date,
-            v.violation_type,
-            v.fine_amount,
-            v.violation_status,
-            cs.entry_time,
-            cs.exit_time,
-            cs.total_amount AS session_amount
-        FROM payments p
-        LEFT JOIN violations v
-            ON p.violation_id = v.violation_id
-        LEFT JOIN charging_sessions cs
-            ON p.charging_session_id = cs.charging_session_id
+        SELECT 
+            p.payment_id, p.session_id, p.amount_paid AS payment_amount, p.method AS payment_method, p.status AS payment_status, p.timestamp AS payment_date,
+            v.violation_id, v.violation_type, v.fine_amount, v.status AS violation_status,
+            cs.charging_id, cs.start_time AS charging_start, cs.cost AS charging_cost
+        FROM Payments p
+        LEFT JOIN Violations v ON p.session_id = v.session_id
+        LEFT JOIN Charging_Sessions cs ON p.session_id = cs.session_id
 
         UNION
 
-        SELECT
-            p.payment_id,
-            p.charging_session_id,
-            v.violation_id,
-            p.amount AS payment_amount,
-            p.payment_method,
-            p.payment_status,
-            p.payment_date,
-            v.violation_type,
-            v.fine_amount,
-            v.violation_status,
-            cs.entry_time,
-            cs.exit_time,
-            cs.total_amount AS session_amount
-        FROM violations v
-        LEFT JOIN payments p
-            ON v.violation_id = p.violation_id
-        LEFT JOIN charging_sessions cs
-            ON v.charging_session_id = cs.charging_session_id
+        SELECT 
+            p.payment_id, v.session_id, p.amount_paid AS payment_amount, p.method AS payment_method, p.status AS payment_status, p.timestamp AS payment_date,
+            v.violation_id, v.violation_type, v.fine_amount, v.status AS violation_status,
+            cs.charging_id, cs.start_time AS charging_start, cs.cost AS charging_cost
+        FROM Violations v
+        LEFT JOIN Payments p ON v.session_id = p.session_id
+        LEFT JOIN Charging_Sessions cs ON v.session_id = cs.session_id
         WHERE p.payment_id IS NULL
     `);
 

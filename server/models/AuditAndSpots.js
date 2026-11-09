@@ -133,13 +133,15 @@ class AuditAndSpots {
         return result.affectedRows;
     }
 
-    static async deleteParkingSpot(id) {
-        const [result] = await db.execute(
-            'DELETE FROM Parking_Spots WHERE spot_id = ?',
-            [id]
-        );
-        return result.affectedRows;
-    }
+    static async getSpotsWithZones() {
+     const [rows] = await db.execute(`
+         SELECT z.zone_id, z.zone_name, z.floor_level, z.zone_type,
+                s.spot_id, s.spot_number, s.status AS spot_status
+            FROM Parking_Zones z
+         RIGHT JOIN Parking_Spots s ON z.zone_id = s.zone_id
+     `);
+    return rows;
+    }  
 }
 
 module.exports = AuditAndSpots;

@@ -52,10 +52,10 @@ class Hardware {
   /* =============================== REQUIRED JOIN REPORT EV_Chargers LEFT JOIN Spots ================================= */
   static async getChargersWithSpots() {
     const [rows] = await db.execute(`
-      SELECT c.charger_id, c.spot_id, c.status, c.power_kw, 
-             s.spot_number, s.location, s.type AS spot_type
-      FROM EV_Chargers c
-      LEFT JOIN Spots s ON c.spot_id = s.spot_id
+      SELECT c.charger_id, c.spot_id, c.charger_type, c.power_output_kw, c.status AS charger_status, 
+            s.spot_number, s.status AS spot_status
+     FROM EV_Chargers c
+      LEFT JOIN Parking_Spots s ON c.spot_id = s.spot_id
     `);
     return rows;
   }
