@@ -8,7 +8,7 @@ router.get('/', (req, res) => res.status(200).json({ message: 'Core API is runni
 // Users Routes
 router.get('/users', coreController.getAllUsers);
 router.get('/users/:id', coreController.getUserById);
-router.post('/users', coreController.createUser); 
+router.post('/users', coreController.createUser);
 router.put('/users/:id', coreController.updateUser);
 router.delete('/users/:id', coreController.deleteUser);
 
