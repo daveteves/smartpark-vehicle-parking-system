@@ -32,7 +32,7 @@ SmartPark is a web-based application developed for **Database Management Systems
 ## Section
 
 <!-- TODO: Replace with your section, e.g., A -->
-Section A
+Section C Group 6
 
 ## Features
 
@@ -84,7 +84,7 @@ The separate Vite and React frontend consumes this REST API.
 | Teves, Dave Bryan A. | [@daveteves](https://github.com/daveteves) | `Users`, `Parking_Zones` | User registration, login/auth flow, zone management CRUD | Users + Vehicles (`INNER JOIN`) | Core |
 | Teves, Richie | <!-- TODO --> @richiefastwheelz | `Tariff_Rules`, `Promo_Codes`, `Vehicles` | Pricing rule configuration, vehicle registration CRUD | Vehicles + RFID_Tags (`LEFT JOIN`) | Master Data |
 | Yugto, Kent | <!-- TODO: GitHub username --> | `Memberships`, `Audit_Logs`, `Parking_Spots` | Spot status management, membership subscription tracking | Zones + Spots (`RIGHT JOIN`) | Audit & Spots |
-| Vargas, Anton Johnrhoan | <!-- TODO: GitHub username --> | `IoT_Devices`, `RFID_Tags`, `EV_Chargers` | Device heartbeat tracking, RFID assignment CRUD | Spots + EV_Chargers (`LEFT JOIN`) | Hardware |
+| Vargas, Anton Johnrhoan | <!-- TODO:  --> @antonvvargas | `IoT_Devices`, `RFID_Tags`, `EV_Chargers` | Device heartbeat tracking, RFID assignment CRUD | Spots + EV_Chargers (`LEFT JOIN`) | Hardware |
 | Tero, Ma. Rudylin | <!-- TODO: GitHub username --> | `Reservations`, `Parking_Sessions` | Booking flow, live session tracking (entry/exit timestamps) | Sessions + Spots (`INNER JOIN`) | Transactions |
 | Bermudo, Micha G. | <!-- TODO: GitHub username --> | `Payments`, `Violations`, `Charging_Sessions` | Payment processing, fine management CRUD | Payments + Violations (`FULL OUTER JOIN` via `UNION`) | Finance |
 
