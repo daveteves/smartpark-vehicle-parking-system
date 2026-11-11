@@ -82,11 +82,11 @@ The separate Vite and React frontend consumes this REST API.
 | Member | GitHub | Tables | Endpoints / Screens | Join(s) | Feature Role |
 |---|---|---|---|---|---|
 | Teves, Dave Bryan A. | [@daveteves](https://github.com/daveteves) | `Users`, `Parking_Zones` | User registration, login/auth flow, zone management CRUD | Users + Vehicles (`INNER JOIN`) | Core |
-| Teves, Richie | <!-- TODO --> @richiefastwheelz | `Tariff_Rules`, `Promo_Codes`, `Vehicles` | Pricing rule configuration, vehicle registration CRUD | Vehicles + RFID_Tags (`LEFT JOIN`) | Master Data |
-| Yugto, Kent | <!-- TODO: GitHub username --> | `Memberships`, `Audit_Logs`, `Parking_Spots` | Spot status management, membership subscription tracking | Zones + Spots (`RIGHT JOIN`) | Audit & Spots |
-| Vargas, Anton Johnrhoan | <!-- TODO:  --> @antonvvargas | `IoT_Devices`, `RFID_Tags`, `EV_Chargers` | Device heartbeat tracking, RFID assignment CRUD | Spots + EV_Chargers (`LEFT JOIN`) | Hardware |
-| Tero, Ma. Rudylin | <!-- TODO: GitHub username --> | `Reservations`, `Parking_Sessions` | Booking flow, live session tracking (entry/exit timestamps) | Sessions + Spots (`INNER JOIN`) | Transactions |
-| Bermudo, Micha G. | <!-- TODO: GitHub username --> | `Payments`, `Violations`, `Charging_Sessions` | Payment processing, fine management CRUD | Payments + Violations (`FULL OUTER JOIN` via `UNION`) | Finance |
+| Teves, Richie | [@richiefastwheelz](https://github.com/richiefastwheelz) | `Tariff_Rules`, `Promo_Codes`, `Vehicles` | Pricing rule configuration, vehicle registration CRUD | Vehicles + RFID_Tags (`LEFT JOIN`) | Master Data |
+| Yugto, Kent | [@Xialc-sudo](https://github.com/Xialc-sudo) | `Memberships`, `Audit_Logs`, `Parking_Spots` | Spot status management, membership subscription tracking | Zones + Spots (`RIGHT JOIN`) | Audit & Spots |
+| Vargas, Anton Johnrhoan | [@antonvvargas](https://github.com/antonvvargas) | `IoT_Devices`, `RFID_Tags`, `EV_Chargers` | Device heartbeat tracking, RFID assignment CRUD | Spots + EV_Chargers (`LEFT JOIN`) | Hardware |
+| Tero, Ma. Rudylin | [@marudylintero-svg](https://github.com/marudylintero-svg) | `Reservations`, `Parking_Sessions` | Booking flow, live session tracking (entry/exit timestamps) | Sessions + Spots (`INNER JOIN`) | Transactions |
+| Bermudo, Micha G. | [@MichaBermudo](https://github.com/MichaBermudo) | `Payments`, `Violations`, `Charging_Sessions` | Payment processing, fine management CRUD | Payments + Violations (`FULL OUTER JOIN` via `UNION`) | Finance |
 
 ## API Documentation
 
